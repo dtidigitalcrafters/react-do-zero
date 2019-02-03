@@ -121,9 +121,9 @@
 ```
 * O estado de um componente deve ser alterado via chamada de função ```setState({})```
 ```javascript 
-     // Certo
+     // Errado
     this.state.comment = 'Hello';
-    // Errado
+    // Certo
     this.setState({comment: 'Hello'});
 ```
 ### Componentes - LifeCycle
