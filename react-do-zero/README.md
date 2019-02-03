@@ -132,8 +132,29 @@
 * A atualização de um componente ocorre quando um componente pai passa props para ele, ou quando ele mesmo atualiza seu estado via ```setState()```
 * Toda atualização irá invocar os métodos do lifecycle do componente novamente
 * Entender o lifecycle e como a alteração de estado do componente interage com o lifecycle é extremamente importante e sua aplicação influencia diretamente na performance e usabilidade da aplicação
-
-
+* Component lifecycle exemplo
+```javascript 
+    class MeuComponente extends Component {
+       state = {
+           comment: 'Comentário inicial'
+       };
+       // o componentDidMount é um do métodos do lifecycle de criação do componente
+       componentDidMount() {
+        setTimeout(() => {
+          this.setState({ comment: 'Altera o comentário 3 segundos depois que meu componente for montado'})
+        }, 3000);
+       }
+       
+       render() {
+            return (
+                <div>
+                  <h1>Hello, world!</h1>
+                  <h2>My comment: {this.state.comment}.</h2>
+                </div>
+            );
+        }
+    }
+```
 # REFERENCIAS
 https://reactjs.org/docs/getting-started.html
 
@@ -142,3 +163,5 @@ https://medium.com/@lizdenhup/understanding-unidirectional-data-flow-in-react-3e
 https://www.codecademy.com/articles/react-virtual-dom
 
 https://www.youtube.com/watch?v=x7cQ3mrcKaY
+
+https://www.udemy.com/react-the-complete-guide-incl-redux/
