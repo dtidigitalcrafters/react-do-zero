@@ -32,9 +32,9 @@
 
 ### JSX e React elements
 * JSX não é nem uma string nem é puramente HTML
-* é como uma "notação" para criar react elements
-* react elements não são DOM elements
-* são apenas objetos simples que descrevem como o elemento deve ser na tela
+* é como uma "notação" para criar *React Elements*. Análogo ao **xml**
+* *React Elements* não são DOM elements
+* são apenas objetos simples que descrevem como o elemento deve ser
     ```javascript
         const element = (
             <h1 className="greeting">
@@ -42,7 +42,7 @@
             </h1>
         );
     ```
-* no final das contas o [Babel](https://babeljs.io) compila o JSX criando o react element via função 
+* no final das contas o [Babel](https://babeljs.io) transpila o JSX criando o React Element via função 
     ```javascript
         const element = React.createElement(
               'h1',
@@ -68,13 +68,13 @@
 *  *"React is all about components"*
 *  componentes "são como" funções JS que recebem inputs (**props**) e renderizam elementos React
 *  há duas formas de criar componentes em react
-*  **function components**, também conhecido como **stateless component**, que são literalmente funções
+*  **function components** que são literalmente funções que recebem **props** como parametro e retornam **JSX** ou **null**
     ```javascript
         function Welcome(props) {
             return <h1>Hello, {props.name}</h1>;
         }
     ```  
-* e **class component** usando ES6 class
+* e **class component** usando ES6 class. São classes que devem retornar um **JSX** ou **null** necessariamente excutando o método **render()**
     ```javascript
         class Welcome extends React.Component {
           render() {
@@ -82,8 +82,12 @@
           }
         }
     ```   
-* usar function components ou class components implica em performance
-* todo componente deve retornar um React Element(JSX) ou null
+* usar **function components** ou **class components** implica em performance
+* **function components** são mais performáticos
+* **IMPORTANTE** antes da versão **16.6** os **function components** eram também conhecidos como **stateless components**, isso porque estes não controlavam seu próprio estado.
+* os  **class components** por sua vez eram também conhecidos como  **stateful components** pois controlam o próprio estado e possuem *lifecycles* (mais detalhes a seguir)
+. **NO ENTANTO** a partir da versão **16.6** do react, novas features possibilitam que **function components** controlem o seu próprio estado sem serem *classes*
+
 ### Componentes - Props
 * o fluxo de data do React é ***top-down***, ou seja o componente de mais alto nível passa o para componentes "filhos" via **Props**
     ```javascript
@@ -103,7 +107,7 @@
 
 ### Componentes - State
 * O estado de um componente diz como este deve ser apresentado na tela
-* Quando o estado do componente não depende ou não provém de um componente pai, o proprio componente controla seu estado. Isso pode ser chamado de estado local
+* Quando o estado do componente não depende ou não provém de um componente pai (**props**), o proprio componente controla seu estado. Isso pode ser chamado de estado local
 ```javascript 
     class App extends Component {
         state = {
@@ -127,18 +131,22 @@
     this.setState({comment: 'Hello'});
 ```
 ### Componentes - LifeCycle
-* LifeCycle implica em alguns métodos que são executados durante o ciclo de criação ou atualização de um componente
-* Esses métodos são chamados automaticamente pelo React, e só existe LifeCycle em componentes do tipo ***class component***
-* A atualização de um componente ocorre quando um componente pai passa props para ele, ou quando ele mesmo atualiza seu estado via ```setState()```
-* Toda atualização irá invocar os métodos do lifecycle do componente novamente
-* Entender o lifecycle e como a alteração de estado do componente interage com o lifecycle é extremamente importante e sua aplicação influencia diretamente na performance e usabilidade da aplicação
-* Component lifecycle exemplo
+* LifeCycle são alguns métodos que são executados durante o ciclo de criação ou atualização de um componente
+* Esses métodos são executados pelo React, e só existe **lifecycle** em componentes do tipo **class components**
+* Embora os **function components** não tenham **lifecycle**, novas features adicionadas ao React na versão **16.6**, possibilitam que **function components** se comportem exatamente como  **class component** no que diz respeito a controle de estado e **lifecycle**.
+* Essas novas features serão abordadas mais a frente..
+* Existem **lifecycles** de criação e atualização do componente
+* A atualização de um componente ocorre quando um componente pai passa props para o componente, ou quando o próprio componente atualiza seu estado via ```setState()```
+* Toda atualização irá invocar o **lifecycle**  de atualização do componente novamente
+* Entender o **lifecycle** e como a alteração de estado do componente interage com o **lifecycle** é extremamente importante e sua aplicação influencia diretamente na performance e usabilidade da aplicação
+* Component **lifecycle** exemplo
 ```javascript 
     class MeuComponente extends Component {
        state = {
            comment: 'Comentário inicial'
        };
-       // o componentDidMount é um do métodos do lifecycle de criação do componente
+    // o componentDidMount é um dos métodos do lifecycle de criação do componente
+    // ele executa quando o componente acaba de renderizar
        componentDidMount() {
         setTimeout(() => {
           this.setState({ comment: 'Altera o comentário 3 segundos depois que meu componente for montado'})
@@ -155,6 +163,7 @@
         }
     }
 ```
+
 # REFERENCIAS
 https://reactjs.org/docs/getting-started.html
 
