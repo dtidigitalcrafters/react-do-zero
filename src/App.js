@@ -12,9 +12,10 @@ import WelcomeClass from './parteUm/components/welcomeClassComponent';
 
 class App extends Component {
   state = {
-    helloFunction: 'Eu sou um Function component' ,
+    helloFunction: 'Eu sou um Function component',
     helloClass: 'Eu sou um Class component',
-    exibeWelcomeClass: false
+    contador: 0,
+    exibeWelcomeClass: true
   };
 
   /**
@@ -27,13 +28,20 @@ class App extends Component {
    * ele re-renderize a si e seus componentes filhos
    */
   componentDidMount = () => {
-    // após 3 sec que o componente foi montado, atualiza o nome do function
+    setInterval(() => {
+      this.setState(prevState => {
+        return {
+          contador: prevState.contador + 1
+        };
+      });
+    }, 1000);
+    // após 3 sec que o componente foi montado, atualiza o nome do WelcomeFunction
     setTimeout(() => {
       this.setState({
         helloFunction: `${this.state.helloFunction} - alterado após 3sec`
       });
     }, 3000);
-    // após 5 sec que o componente foi montado, atualiza o nome do Class
+    // após 5 sec que o componente foi montado, atualiza o nome do WelcomeClass
     setTimeout(() => {
       this.setState({
         helloClass: `${this.state.helloClass} - alterado após 5sec`
@@ -57,6 +65,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <header className="App-header">
+            <h1>{this.state.contador}</h1>
             <WelcomeFunction
               nome={this.state.helloFunction}
               exibeWelcomeClass={this.exibeWelcomeClass}
