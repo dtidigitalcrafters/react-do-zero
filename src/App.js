@@ -4,17 +4,17 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './styles/theme';
 import './App.css';
 
-import WelcomeStateLess from './parteUm/components/welcomeStateLessComponent';
-import WelcomeStateFul from './parteUm/components/welcomeStateFulComponent';
+import WelcomeFunction from './parteUm/components/welcomeFunctionComponent';
+import WelcomeClass from './parteUm/components/welcomeClassComponent';
 
 // import classes from './App.module.css';
 // https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet
 
 class App extends Component {
   state = {
-    nomeStateLess: 'stateLess',
-    nomeStateFul: 'stateFul',
-    exibeWelcomeStateFul: false
+    helloFunction: 'Eu sou um Function component' ,
+    helloClass: 'Eu sou um Class component',
+    exibeWelcomeClass: false
   };
 
   /**
@@ -27,16 +27,16 @@ class App extends Component {
    * ele re-renderize a si e seus componentes filhos
    */
   componentDidMount = () => {
-    // após 3 sec que o componente foi montado, atualiza o nome do stateLess
+    // após 3 sec que o componente foi montado, atualiza o nome do function
     setTimeout(() => {
       this.setState({
-        nomeStateLess: `${this.state.nomeStateLess} - alterado após 3sec`
+        helloFunction: `${this.state.helloFunction} - alterado após 3sec`
       });
     }, 3000);
-    // após 5 sec que o componente foi montado, atualiza o nome do stateFul
+    // após 5 sec que o componente foi montado, atualiza o nome do Class
     setTimeout(() => {
       this.setState({
-        nomeStateFul: `${this.state.nomeStateFul} - alterado após 3sec`
+        helloClass: `${this.state.helloClass} - alterado após 5sec`
       });
     }, 5000);
   };
@@ -46,9 +46,9 @@ class App extends Component {
    * mas também referencias de funções no componente pai
    * para que sejam chamadas nos filhos
    */
-  exibeOcultaWelcomeStateFul = () => {
+  exibeWelcomeClass = () => {
     this.setState({
-      exibeWelcomeStateFul: !this.state.exibeWelcomeStateFul
+      exibeWelcomeClass: !this.state.exibeWelcomeClass
     });
   };
 
@@ -57,13 +57,13 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <header className="App-header">
-            <WelcomeStateLess
-              nome={this.state.nomeStateLess}
-              exibeOcultaWelcomeStateFul={this.exibeOcultaWelcomeStateFul}
+            <WelcomeFunction
+              nome={this.state.helloFunction}
+              exibeWelcomeClass={this.exibeWelcomeClass}
             />
-            <WelcomeStateFul
-              nome={this.state.nomeStateFul}
-              exibeWelcomeStateFul={this.state.exibeWelcomeStateFul}
+            <WelcomeClass
+              nome={this.state.helloClass}
+              exibeWelcomeClass={this.state.exibeWelcomeClass}
             />
           </header>
         </div>

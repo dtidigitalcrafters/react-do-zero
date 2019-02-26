@@ -2,7 +2,7 @@ import React from 'react';
 class Welcome extends React.Component {
   /**
    * o shouldComponentUpdate é um dos métodos mais importantes do
-   * lifecycle de um componente stateFul
+   * lifecycle de um componente class
    * ele deve retornar true ou false para atualizar o componente
    * isso implica que, você pode controlar a atualização do seu componente
    * para que ele atualize somente quando coisas que interessam a ele mudarem de fato
@@ -17,14 +17,14 @@ class Welcome extends React.Component {
    */
   shouldComponentUpdate(nextProps, nextState) {
     // retorna true se o proximo nome recebido na props for diferente do atual
-    // o se a prop 'exibeWelcomeStateFul' for alterada
+    // o se a prop 'exibeWelcomeClass' for alterada
     return (
       nextProps.nome !== this.props.nome ||
-      nextProps.exibeWelcomeStateFul !== this.props.exibeWelcomeStateFul
+      nextProps.exibeWelcomeClass !== this.props.exibeWelcomeClass
     );
   }
   render() {
-    if(this.props.exibeWelcomeStateFul) {
+    if(this.props.exibeWelcomeClass) {
       return <h1>Hello, {this.props.nome}</h1>
     }
     return null

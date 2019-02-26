@@ -7,7 +7,7 @@ function welcome(props) {
       <Button
         variant="contained"
         color="primary"
-        onClick={props.exibeOcultaWelcomeStateFul}
+        onClick={props.exibeWelcomeClass}
       >
         exibe/oculta stateFul component
       </Button>
