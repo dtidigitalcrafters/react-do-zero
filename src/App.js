@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './styles/theme';
 import './App.css';
-import CrafterPage from './crafter/crafterPage';
 // import classes from './App.module.css';
 // https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet
 
@@ -12,7 +11,20 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <CrafterPage />
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
+            </p>
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+          </header>
         </div>
       </MuiThemeProvider>
     );

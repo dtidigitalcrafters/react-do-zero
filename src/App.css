@@ -14,14 +14,14 @@
   /* justify-content: center; */
 }
 .App-header {
-  background-color: #fff;
-  /* min-height: 1vh; */
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #282c34;
+  color: #ffffff;
 }
 
 .App-link {
