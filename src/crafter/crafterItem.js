@@ -17,7 +17,7 @@ const CrafterItem = (props) => {
         <Avatar alt="Remy Sharp" src={crafter.urlAvatar} />
       </ListItemAvatar>
       <ListItemText
-        primary="Brunch this weekend?"
+        primary={crafter.nome}
         secondary={
           <React.Fragment>
             <Typography
@@ -40,4 +40,4 @@ const styles = theme => ({
     display: 'inline'
   }
 });
-export default withStyles(styles)(CrafterItem);
+export default  withStyles(styles)(CrafterItem);
