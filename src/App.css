@@ -7,15 +7,13 @@
   height: 40vmin;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
+.App-container {
+  padding:  5vh 15vw;
 }
+
 .App-header {
   background-color: #fff;
-  /* min-height: 1vh; */
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;

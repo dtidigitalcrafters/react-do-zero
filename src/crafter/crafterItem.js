@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
-const CrafterItem = (props) => {
+const CrafterItem = props => {
   const { classes, crafter } = props;
   return (
     <ListItem alignItems="flex-start">
@@ -27,7 +27,12 @@ const CrafterItem = (props) => {
             >
               {crafter.email}
             </Typography>
-            {" — I'll be in your neighborhood doing errands this…"}
+            <Typography
+              component="p"
+              color="textSecondary"
+            >
+              " — I'll be in your neighborhood doing errands this…"
+            </Typography>
           </React.Fragment>
         }
       />
@@ -40,4 +45,4 @@ const styles = theme => ({
     display: 'inline'
   }
 });
-export default  withStyles(styles)(CrafterItem);
+export default withStyles(styles)(CrafterItem);
