@@ -164,6 +164,22 @@
     }
 ```
 
+
+## Parte 2
+### CRUD de Crafters
+* Nessa etapa vamos exercitar os conceitos principais de criação de componentes
+    * **functionComponent**
+    * **classComponent**    
+    * uso de **state** e **props** 
+    * uso de lifecycle
+    * **handleEvents**
+    * como estilizar componentes
+    * materialUi
+
+* Na pasta ```src``` do projeto crie uma pasta ```src/crafter``` 
+* Na pasta ```src/crafter``` do projeto crie um arquivo pasta ```src/crafterList.js``` 
+* Na pasta ```src/crafter``` do projeto crie uma pasta ```src/crafterItem.js``` 
+
 # REFERENCIAS
 https://reactjs.org/docs/getting-started.html
 
