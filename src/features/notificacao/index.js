@@ -1,0 +1,1 @@
+export {default as NotificacaoContainer } from './views/NotificacaoContainer';
